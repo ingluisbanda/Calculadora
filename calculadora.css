@@ -1,0 +1,120 @@
+* {
+    font-family: 'Fraunces', serif;
+    color: #fff;
+}
+
+body {
+  margin: 0;
+  background-color: #6aa3b4; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* - Display grid, me ayuda a generar una division de los elementos en el
+     numero de columnas y filas que le especifique, el ancho y el alto de 
+     ellas. 
+
+   - Utilizamos entonces: grid-template-columns: repeat(4, 75px); estas
+     4 columnas se van a repetir hacia la derecha hasta que se acaben los 
+     elementos y van a tener un ancho de 75px. 
+
+   - grid-template-rows (Distribucion de las filas): 160px (Alto de la 
+     primera fila), luego hacemos la distribucion repetida para las demas
+     filas: repeat(5, 75px) esto permite distribuir el alto a lo largo de
+     las 5 filas, pero solo va a afectar a las 4 debajo, ya que se
+     especificó el alto de la primera. 
+
+*/
+.calculadora {
+    display:grid;
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: 160px repeat(5, 75px);
+    background-color: #00c6ab;
+    padding: 15px;
+    border-radius: 32px;
+    box-shadow: 15px 10px 0px 5px #00000048;
+}
+
+/*
+    - cursor: Especifica el tipo de cursor que se mostrara cuando este se 
+      encuentre sobre un elemento. cambiar la imagen del cursor al posicionarse 
+      con el ratón sobre elementos. En este caso, con POINTER, nos va a 
+      aparecer la mano seleccionando a los elementos de las cuadriculas
+
+*/
+button{
+    cursor: pointer;
+    margin: 5px;
+    padding: 0px;
+    border-radius: 32px;
+    font-size: 1.5em;
+    border: none;
+    background-color: #06af99;
+    box-shadow: 5px 5px 10px -3px #00000048,
+               -5px -5px 15px 3px  #00ffc11f;
+}
+
+/*
+    - Hacemos a continuacion un pequeño cambio de color con button:active
+      para que al pasar el mousse, este se oscurezca. 
+*/
+
+button:active {
+    background-color: #00c6ab;
+}
+
+/*
+    - button:focus nos permite eliminar el margen o borde al seleccionar 
+      un botón. 
+
+*/
+
+button:focus {
+    outline: none;
+}
+
+/*
+    - Damos el ancho total al DISPLAY con grid-column: 1 / -1;, ya que 
+      normalmente aparece a la izquierda al lado de AC y de los otros dos
+      botones de arriba. Ahora va a cubrir todo el ancho de la pantalla.
+      
+    - word-break: break-all; Se utiliza para dividir las palabras en 
+      cualquier carácter para evitar que se desborden .
+
+*/
+.display {
+    grid-column: 1 / -1;
+    padding: 16px;
+    display: flex;
+    margin: 10px 10px 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: #363636;
+    border-radius: 32px;
+    text-align: right;
+    justify-content: space-between;
+    word-break: break-all;
+    box-shadow: 0px 0px 0px 10px #00000033;
+}
+
+/*
+    - grid-column: span 2; te permite utilizar dos espacios de la grilla
+      para AC y el numero 0.
+
+*/
+.col-doble{
+   grid-column: span 2; 
+}
+
+#valor-actual {
+    font-size: 1.5em;
+}
+
+#valor-anterior {
+    font-size: 2em;
+}
